@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موسوعة لغات البرمجة | CodeLearn</title>
+<style>
+:root{--bg:#070b18;--panel:#101a32;--panel2:#0c1428;--text:#edf3ff;--muted:#aab8d6;--blue:#27c6ff;--purple:#8b5cf6;--line:#26385f}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 85% 0%,#1b2250 0,transparent 32%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:#080d1beF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+nav{max-width:1150px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{font-size:22px;font-weight:bold;color:var(--blue)}.logo span{color:var(--purple)}
+.navlinks{display:flex;gap:17px;flex-wrap:wrap;font-size:14px;color:var(--muted)}.navlinks a:hover{color:var(--blue)}
+.wrap{max-width:1150px;margin:auto;padding:0 22px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:72px 0 48px}
+.pill{display:inline-block;border:1px solid #31517e;background:#122342;color:#8ce2ff;padding:5px 13px;border-radius:99px;font-size:13px}
+h1{font-size:clamp(32px,5vw,58px);line-height:1.25;margin:18px 0}
+.grad{background:linear-gradient(90deg,var(--blue),#b49aff);-webkit-background-clip:text;color:transparent}
+p{color:var(--muted)}
+.btn{display:inline-block;border:0;border-radius:12px;padding:12px 19px;background:linear-gradient(110deg,#167df2,#7c3aed);color:white;font-weight:bold;cursor:pointer;margin:7px 4px 0 0}
+.btn.secondary{background:#111d38;border:1px solid #35517e}
+.hero-art{min-height:290px;border:1px solid #234a7b;border-radius:25px;background:linear-gradient(145deg,#142951,#0c1023);display:grid;place-items:center;position:relative;overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.5}
+.hero-art:before{width:230px;height:230px;background:#155bce;right:-70px;top:-70px}
+.hero-art:after{width:190px;height:190px;background:#742fe0;left:-50px;bottom:-80px}
+.code-window{position:relative;z-index:1;width:82%;background:#080f20;border:1px solid #2b4677;border-radius:15px;padding:20px;box-shadow:0 20px 60px #0008;transform:rotate(-2deg)}
+.code-window .dots{color:#ff6b83;letter-spacing:5px}.code-window pre{white-space:pre-wrap;color:#9ce6ff;font-size:14px;direction:ltr;text-align:left}
+section{padding:48px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 28px}.section-head h2{font-size:30px;margin:0 0 8px}.section-head p{margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:18px 0 30px}.stat,.card,.road-card,.editor{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:17px;padding:20px}
+.stat{text-align:center}.stat strong{display:block;font-size:27px;color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{transition:.25s;position:relative;overflow:hidden}.card:hover{transform:translateY(-5px);border-color:var(--blue);box-shadow:0 12px 35px #147aff20}
+.lang-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#1b2c50;color:#80dfff;font-weight:bold;font-size:17px;margin-bottom:12px}
+.card h3{margin:5px 0}.tag{display:inline-block;border-radius:7px;padding:3px 8px;background:#192748;color:#b8c8ff;font-size:12px;margin:3px}
+.card p{font-size:14px;min-height:55px}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.road-card b{color:var(--blue);font-size:20px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.list{padding-right:20px;color:var(--muted)}.list li{margin:8px 0}
+.editor textarea{width:100%;min-height:155px;background:#070d1a;color:#a7edff;border:1px solid #2b4779;border-radius:10px;padding:14px;font:14px/1.7 Consolas,monospace;direction:ltr;text-align:left;resize:vertical}
+.output{background:#f5f7fb;color:#111827;min-height:65px;border-radius:10px;padding:12px;margin-top:12px;overflow:auto}
+.faq details{padding:15px 18px;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:10px 0}.faq summary{cursor:pointer;font-weight:bold}.faq p{margin-bottom:0}
+footer{border-top:1px solid var(--line);padding:25px;text-align:center;color:var(--muted)}
+.reveal{animation:rise .7s ease both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){.hero,.two-col{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.roadmap{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}nav{align-items:flex-start;flex-direction:column}.navlinks{gap:10px}}
+@media(max-width:520px){.grid,.roadmap{grid-template-columns:1fr}.hero{padding-top:40px}.wrap{padding:0 15px}.section-head h2{font-size:25px}}
+</style>
+</head>
+<body>
+<header><nav>
+<a class="logo" href="#home">&lt;/&gt; Code<span>Learn</span></a>
+<div class="navlinks"><a href="#home">الرئيسية</a><a href="#languages">اللغات</a><a href="#roadmap">خطة التعلم</a><a href="#editor">جرّب بنفسك</a><a href="#faq">أسئلة شائعة</a></div>
+</nav></header>
+<main class="wrap">
+<section class="hero" id="home">
+<div class="reveal">
+<span class="pill">دليلك العملي إلى عالم البرمجة</span>
+<h1>ابدأ رحلتك في عالم <span class="grad">البرمجة</span></h1>
+<p>تعرّف على أشهر لغات البرمجة، واكتشف استخدامات كل لغة، واتبع خطة واضحة للتعلم، ثم جرّب كتابة كود JavaScript وتشغيله مباشرة من الصفحة.</p>
+<a class="btn" href="#languages">استكشف اللغات</a><a class="btn secondary" href="#editor">جرّب محرر الأكواد</a>
+</div>
+<div class="hero-art"><div class="code-window"><div class="dots">● ● ●</div><pre>const future = "مستقبلك";
+function learn(code) {
+  return practice(code) + patience;
+}
+console.log("ابدأ الآن!");</pre></div></div>
+</section>
+<div class="stats">
+<div class="stat"><strong>12+</strong><span>لغة وتقنية</span></div><div class="stat"><strong>4</strong><span>خطوات للتعلم</span></div><div class="stat"><strong>100%</strong><span>ابدأ من الصفر</span></div><div class="stat"><strong>∞</strong><span>فرص للإبداع</span></div>
+</div>
+<section id="languages">
+<div class="section-head"><h2>أشهر <span class="grad">لغات البرمجة</span></h2><p>اختَر اللغة المناسبة لهدفك، وتذكّر أن الأساسيات أهم من تعلّم لغات كثيرة في وقت واحد.</p></div>
+<div class="grid">
+<article class="card"><div class="lang-icon">Py</div><h3>Python</h3><span class="tag">سهلة للمبتدئين</span><span class="tag">ذكاء اصطناعي</span><p>لغة واضحة ومناسبة للأتمتة وتحليل البيانات والذكاء الاصطناعي وتطوير الخوادم.</p><a class="btn secondary" href="https://www.python.org/about/gettingstarted/" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">JS</div><h3>JavaScript</h3><span class="tag">تطوير الويب</span><span class="tag">تفاعلية</span><p>تضيف التفاعل والحركة إلى صفحات الويب، ويمكن استخدامها أيضًا في الخوادم.</p><a class="btn secondary" href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">HTML</div><h3>HTML</h3><span class="tag">بناء الصفحات</span><p>تحدد بنية محتوى صفحة الويب مثل العناوين والفقرات والصور والروابط.</p><a class="btn secondary" href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">CSS</div><h3>CSS</h3><span class="tag">التصميم</span><p>تتحكم في الألوان والخطوط والتخطيطات والاستجابة للشاشات والأنيميشن.</p><a class="btn secondary" href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">PHP</div><h3>PHP</h3><span class="tag">الخوادم</span><p>تستخدم في بناء تطبيقات الويب من جهة الخادم والتعامل مع قواعد البيانات.</p><a class="btn secondary" href="https://www.php.net/manual/en/getting-started.php" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">SQL</div><h3>SQL</h3><span class="tag">قواعد البيانات</span><p>تساعدك على استرجاع البيانات وتنظيمها وإضافتها وتعديلها داخل قواعد البيانات.</p><a class="btn secondary" href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">Java</div><h3>Java</h3><span class="tag">تطبيقات</span><p>لغة متعددة الاستخدامات لبناء تطبيقات المؤسسات والأنظمة وتطبيقات أندرويد.</p><a class="btn secondary" href="https://dev.java/learn/" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">C++</div><h3>C++</h3><span class="tag">أداء عالٍ</span><p>مناسبة للبرامج التي تحتاج أداءً عاليًا، مثل الألعاب والمحاكاة والأنظمة.</p><a class="btn secondary" href="https://www.learncpp.com/" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">C#</div><h3>C#</h3><span class="tag">تطبيقات وألعاب</span><p>تُستخدم في تطبيقات .NET وتطوير الألعاب باستخدام محرك Unity.</p><a class="btn secondary" href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">Go</div><h3>Go</h3><span class="tag">خوادم</span><p>لغة بسيطة نسبيًا لبناء خدمات الشبكات والخوادم والأنظمة الموزعة.</p><a class="btn secondary" href="https://go.dev/learn/" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">Rust</div><h3>Rust</h3><span class="tag">أمان الذاكرة</span><p>لغة تركز على الأداء وسلامة الذاكرة وتناسب أدوات الأنظمة والتطبيقات السريعة.</p><a class="btn secondary" href="https://www.rust-lang.org/learn" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+<article class="card"><div class="lang-icon">Swift</div><h3>Swift</h3><span class="tag">تطبيقات Apple</span><p>لغة حديثة لتطوير التطبيقات على أنظمة Apple مثل iOS وmacOS.</p><a class="btn secondary" href="https://www.swift.org/getting-started/" target="_blank" rel="noopener">ابدأ التعلم ↗</a></article>
+</div>
+</section>
+<section id="roadmap">
+<div class="section-head"><h2>خطة تعلم البرمجة</h2><p>تدرّج خطوة بخطوة، وطبّق ما تتعلمه بمشروعات صغيرة.</p></div>
+<div class="roadmap">
+<div class="road-card"><b>01</b><h3>افهم الأساسيات</h3><p>المتغيرات، وأنواع البيانات، والشروط، والحلقات، والدوال.</p></div>
+<div class="road-card"><b>02</b><h3>اختر مسارًا</h3><p>مثل تطوير الويب أو تحليل البيانات أو تطبيقات الهاتف أو الألعاب.</p></div>
+<div class="road-card"><b>03</b><h3>طبّق بمشروعات</h3><p>أنشئ صفحة شخصية أو آلة حاسبة أو قائمة مهام بسيطة.</p></div>
+<div class="road-card"><b>04</b><h3>طوّر مهاراتك</h3><p>تعلّم Git وGitHub، واقرأ الأكواد، وراجع أخطاءك باستمرار.</p></div>
+</div>
+</section>
+<section id="editor">
+<div class="section-head"><h2>جرّب بنفسك: محرر JavaScript</h2><p>عدّل المثال ثم اضغط تشغيل. هذا المحرر ينفّذ JavaScript فقط.</p></div>
+<div class="editor">
+<label for="code"><strong>اكتب الكود هنا</strong></label>
+<textarea id="code" spellcheck="false">const name = "مبرمج المستقبل";
+console.log("أهلًا يا " + name);
+console.log("استمر في التعلم والتجربة!");</textarea>
+<button class="btn" id="run">تشغيل الكود</button><button class="btn secondary" id="reset">استعادة المثال</button>
+<strong style="display:block;margin-top:15px">النتيجة</strong><div class="output" id="output" aria-live="polite">ستظهر النتيجة هنا...</div>
+</div>
+</section>
+<section>
+<div class="two-col">
+<div class="card"><h2>لماذا تتعلم البرمجة؟</h2><ul class="list"><li>تحويل الأفكار إلى مواقع وتطبيقات عملية.</li><li>تنمية التفكير المنطقي وحل المشكلات.</li><li>فهم التقنيات الحديثة والذكاء الاصطناعي.</li><li>بناء ملف أعمال يعرض مشروعاتك.</li></ul></div>
+<div class="card"><h2>نصائح للمبتدئين</h2><ul class="list"><li>ابدأ بلغة واحدة ولا تتشتت بين اللغات.</li><li>اكتب الكود بنفسك بدلًا من نسخه فقط.</li><li>قسّم المشكلة الكبيرة إلى خطوات صغيرة.</li><li>اعتبر الأخطاء فرصة للفهم والتعلّم.</li></ul></div>
+</div>
+</section>
+<section class="faq" id="faq">
+<div class="section-head"><h2>أسئلة شائعة</h2><p>إجابات سريعة تساعدك على بداية صحيحة.</p></div>
+<details><summary>ما أفضل لغة أبدأ بها؟</summary><p>يعتمد ذلك على هدفك؛ Python مناسبة كبداية عامة، أما إذا أردت إنشاء مواقع فابدأ بـ HTML وCSS ثم JavaScript.</p></details>
+<details><summary>هل يجب أن أكون ممتازًا في الرياضيات؟</summary><p>ليس لكل مجالات البرمجة؛ تحتاج إلى أساسيات مناسبة للمجال، وتزداد أهمية الرياضيات في مجالات مثل الرسوميات والتعلم الآلي.</p></details>
+<details><summary>كم يستغرق تعلم البرمجة؟</summary><p>لا توجد مدة ثابتة؛ يعتمد الأمر على وقت التدريب والهدف والممارسة المنتظمة. ركّز على التقدم والمشروعات بدلًا من السرعة.</p></details>
+</section>
+</main>
+<footer>© 2026 CodeLearn — تعلّم، جرّب، واصنع شيئًا مفيدًا.</footer>
+<script>
+const codeBox=document.getElementById('code');
+const output=document.getElementById('output');
+const initialCode=codeBox.value;
+document.getElementById('run').addEventListener('click',()=>{
+  const lines=[];
+  const safeConsole={log:(...args)=>lines.push(args.map(v=>typeof v==='object'?JSON.stringify(v):String(v)).join(' ')),warn:(...args)=>lines.push('تحذير: '+args.join(' ')),error:(...args)=>lines.push('خطأ: '+args.join(' '))};
+  try{
+    const fn=new Function('console',codeBox.value);
+    fn(safeConsole);
+    output.textContent=lines.length?lines.join('\n'):'تم تنفيذ الكود دون مخرجات.';
+    output.style.whiteSpace='pre-wrap';
+  }catch(err){output.textContent='حدث خطأ: '+err.message;output.style.whiteSpace='pre-wrap';}
+});
+document.getElementById('reset').addEventListener('click',()=>{codeBox.value=initialCode;output.textContent='ستظهر النتيجة هنا...';});
+</script>
+</body>
+</html>
